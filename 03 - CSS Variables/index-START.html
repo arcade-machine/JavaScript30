@@ -17,10 +17,25 @@
     <label for="base">Base Color</label>
     <input id="base" type="color" name="base" value="#ffc600">
   </div>
-
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
+
+    :root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
+    img {
+      padding: var(--spacing);
+      background-color: var(--base);
+      filter: blur(var(--blur));
+    }
 
     /*
       misc styles, nothing to do with CSS variables
@@ -45,6 +60,51 @@
   </style>
 
   <script>
+    // const colorInput = document.querySelector('#base');
+    // const blurInput = document.querySelector('#blur');
+    // const spacingInput = document.querySelector('#spacing');
+    //
+    // const image = document.querySelector('img');
+    //
+    // colorInput.addEventListener('change', function() {
+    //   document.documentElement.style.setProperty('--basic-color-var', this.value)
+    // });
+    //
+    // blurInput.addEventListener('change', function() {
+    //   settingBlurOfImage();
+    // });
+    //
+    // blurInput.addEventListener('mousemove', function() {
+    //   settingBlurOfImage();
+    // });
+    //
+    // spacingInput.addEventListener('change', function () {
+    //   settingSpacingOfImage();
+    // });
+    //
+    // spacingInput.addEventListener('mousemove', function () {
+    //   settingSpacingOfImage();
+    // });
+    //
+    // function settingBlurOfImage() {
+    //   image.style.filter = `blur(${blurInput.value}${blurInput.dataset.sizing})`
+    // }
+    //
+    // function settingSpacingOfImage() {
+    //   image.style.padding = spacingInput.value + spacingInput.dataset.sizing;
+    // }
+
+    const inputs = document.querySelectorAll('input');
+
+    inputs.forEach(input => input.addEventListener('change', variablesUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', variablesUpdate));
+
+    function variablesUpdate() {
+      const suffix = this.dataset.sizing || '';
+      const inputName = this.id;
+      document.documentElement.style.setProperty(`--${inputName}`, this.value + suffix);
+    }
+
   </script>
 
 </body>
