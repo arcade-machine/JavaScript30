@@ -27,13 +27,63 @@
       { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
     ];
 
+    let numbers = [1,2,3,4,5,6];
+
+    let countryArray = [
+      {
+        country: 'China',
+        population: 1409517397,
+      },
+      {
+        country: 'India',
+        population: 1339180127,
+      },
+      {
+        country: 'USA',
+        population: 324459463,
+      },
+      {
+        country: 'Indonesia',
+        population: 263991379,
+      }
+    ];
+
+    let students = [
+      {
+        name: "david",
+        GPA: 3.3,
+        SAT: 2000
+      },
+      {
+        name: "sheila",
+        GPA: 3.1,
+        SAT: 1600
+      },
+      {
+        name: "Alonzo",
+        GPA: 3.65,
+        SAT: 1700
+      },
+      {
+        name: "Mary",
+        GPA: 3.8,
+        SAT: 2100
+      }
+    ];
+
     const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
     const fifteen = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600);
+    const odd = numbers.filter(number => number % 2 !== 0);
+    const halfMillionCountries = countryArray.filter(country => country.population > 500000000);
+    const approvedStudents = students.filter(student => student.GPA >= 3.2 && student.SAT > 1900);
 
+    console.log(odd);
     console.table(fifteen);
+    console.log(halfMillionCountries);
+    console.log(approvedStudents);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
