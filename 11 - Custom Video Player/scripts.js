@@ -5,6 +5,7 @@ const playBar = document.querySelector('.progress__filled');
 const volumeTrackBar = document.querySelector('input[name="volume"]');
 const playbackTrackBar = document.querySelector('input[name="playbackRate"]');
 const skipButtons = document.querySelectorAll('.player__button');
+const fullscreen = document.querySelector('.player__button--fullscreen');
 let isVideoPlaying = false;
 
 // pause/play on click
@@ -52,3 +53,8 @@ let mousedown = false;
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
+
+//fullscreen
+fullscreen.addEventListener('click', function() {
+    videoPlayer.requestFullscreen();
+});
