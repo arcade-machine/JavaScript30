@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Array Cardio 💪</title>
+    <meta charset="UTF-8">
+    <title>Array Cardio 💪</title>
 </head>
 <body>
-  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
-  <script>
+<p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+<script>
     // Get your shorts on - this is an array workout!
     // ## Array Cardio Day 1
 
     // Some data we can work with
 
     const inventors = [
-      { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
-      { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
-      { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
-      { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
-      { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
-      { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
-      { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
-      { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
-      { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
-      { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
-      { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
-      { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+        {first: 'Albert', last: 'Einstein', year: 1879, passed: 1955},
+        {first: 'Isaac', last: 'Newton', year: 1643, passed: 1727},
+        {first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642},
+        {first: 'Marie', last: 'Curie', year: 1867, passed: 1934},
+        {first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630},
+        {first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543},
+        {first: 'Max', last: 'Planck', year: 1858, passed: 1947},
+        {first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979},
+        {first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852},
+        {first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905},
+        {first: 'Lise', last: 'Meitner', year: 1878, passed: 1968},
+        {first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909}
     ];
 
     const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
@@ -50,24 +50,39 @@
     //   }
     // });
 
-    const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+    const ordered = inventors.sort(
+        (a, b) => a.year > b.year ? 1 : -1
+    );
     console.table(ordered);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
     const totalYears = inventors.reduce((total, inventor) => {
-      return total + (inventor.passed - inventor.year);
+        return total + (inventor.passed - inventor.year);
     }, 0);
 
     console.log(totalYears);
 
     // 5. Sort the inventors by years lived
-    const oldest = inventors.sort(function(a, b) {
-      const lastInventor = a.passed - a.year;
-      const nextInventor = b.passed - b.year;
-      return lastInventor > nextInventor ? -1 : 1;
+    const oldest = inventors.sort(function (a, b) {
+        const lastInventor = a.passed - a.year;
+        const nextInventor = b.passed - b.year;
+        return lastInventor > nextInventor ? -1 : 1;
     });
     console.table(oldest);
+
+    let numberArray = [1, 2, 3, 4, 5];
+
+    function simpleArraySum(ar) {
+        return ar.reduce((total, number) => {
+            return number + total;
+        });
+    }
+
+    console.log(simpleArraySum(numberArray));
+    console.log(numberArray.reduce((total, number) => {
+        return number + total;
+    }));
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -81,9 +96,9 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
     const alpha = people.sort((lastOne, nextOne) => {
-      const [aLast, aFirst] = lastOne.split(', ');
-      const [bLast, bFirst] = nextOne.split(', ');
-      return aLast > bLast ? 1 : -1;
+        const [aLast, aFirst] = lastOne.split(', ');
+        const [bLast, bFirst] = nextOne.split(', ');
+        return aLast > bLast ? 1 : -1;
     });
     console.log(alpha);
 
@@ -91,16 +106,181 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
 
-    const transportation = data.reduce(function(obj, item) {
-      if (!obj[item]) {
-        obj[item] = 0;
-      }
-      obj[item]++;
-      return obj;
+    const transportation = data.reduce(function (obj, item) {
+        if (!obj[item]) {
+            obj[item] = 0;
+        }
+        obj[item]++;
+        return obj;
     }, {});
 
     console.log(transportation);
 
-  </script>
+    tariffs = ['USD', 'EUR', 'RUB', 'YEN'];
+    console.log(tariffs);
+    const defaultCurrencyForEurope = 'EUR';
+    tariffs.sort(
+        (a, b) => a === defaultCurrencyForEurope ? -1 : 1
+    );
+    // tariffs.map(
+    //         (tariff) => {
+    //           tariff.sort(
+    //                   (a, b) => defaultCurrencyForEurope.indexOf(a) > defaultCurrencyForEurope.indexOf(b) ? -1 : 1
+    //           );
+    //         });
+    console.log(tariffs);
+
+
+    let b = [23, 90, 54];
+    let c = [10, 43, 79];
+
+
+    let martix = [
+        [11, 2, 4],
+        [4, 5, 6],
+        [10, 8, -12]
+    ];
+
+    function diagonalDifference(arr) {
+        let matrixLength = arr.length;
+        let matrixInOneLine = [];
+
+        arr.forEach(
+            matrixLine => {
+                matrixInOneLine.push(...matrixLine);
+            }
+        );
+
+        console.log(matrixInOneLine, matrixLength);
+
+        let primaryLine = [];
+        for (let i = 0;
+             i < Math.pow(matrixLength, 2);
+             i = i + (matrixLength + 1)
+        ) {
+            primaryLine.push(matrixInOneLine[i]);
+        }
+
+        let secondaryLine = [];
+        for (
+            let i = matrixLength - 1;
+            i <= (Math.pow(matrixLength, 2) - matrixLength);
+            i = i + (matrixLength - 1)
+        ) {
+            secondaryLine.push(matrixInOneLine[i]);
+        }
+
+        let primaryLineSumm = primaryLine.reduce(
+            (a, b) => a + b, 0
+        );
+        let secondarySumm = secondaryLine.reduce(
+            (a, b) => a + b, 0
+        );
+
+        console.log(primaryLine, secondaryLine);
+        console.log(primaryLineSumm, secondarySumm);
+        return Math.abs((primaryLineSumm + secondarySumm))
+    }
+
+   console.log(diagonalDifference(martix));
+
+    const calculateScore = (array1, array2) => {
+        let a = [0, 0];
+
+        for (let i = 0; i < array1.length; i++) {
+            if (array1[i] > array2[i]) {
+                a[0] = a[0] + 1;
+            } else if (array1[i] < array2[i]) {
+                a[1] = a[1] + 1;
+            }
+        }
+
+        return a;
+    };
+
+    console.log(calculateScore(b, c));
+
+    array1 = [
+        {test: 'test1'},
+        {test: 'test2'}
+    ];
+    array2 = array1.map(
+        i => {
+            return i.test;
+        }
+    );
+    console.log(array1);
+    console.log(array2);
+
+
+    // _______ filter numbers _____ //
+    const arrayOfNumbers = [10, -20, 0, 3, 42, -32];
+
+    function plusMinus(arr) {
+        const arrayOfNegativeNumbers = arr.filter(
+            number => number < 0
+        );
+
+        const arrayOfPositiveNumbers = arr.filter(
+            number => number > 0
+        );
+
+        const arrayOfZeros = arr.filter(
+            number => number === 0
+        );
+
+        return [
+            roundDecimalNumbers(arrayOfPositiveNumbers.length / arr.length),
+            roundDecimalNumbers(arrayOfNegativeNumbers.length / arr.length),
+            roundDecimalNumbers(arrayOfZeros.length / arr.length)
+        ]
+    }
+
+    function roundDecimalNumbers(number) {
+        return (Math.round(number * 10000) / 10000).toFixed(4);
+    }
+
+    console.log(plusMinus(arrayOfNumbers));
+
+    // _____ stair case _____ //
+    const numberOfStairs = 4;
+
+    for (let i = 1; i <= numberOfStairs; i++) {
+        let stairCase = `${' '.repeat(numberOfStairs - i)}${'#'.repeat(i)}`;
+        console.log(stairCase);
+    }
+
+    // ______ mini max sum ______ //
+    const arrayOfPositiveNumbers = [5, 5, 5, 5, 5];
+    const smallestNumberInArray = Math.max(...arrayOfPositiveNumbers);
+    const biggestNumberInArray = Math.min(...arrayOfPositiveNumbers);
+
+    let isSmallestAndBiggestNumberAreTheSame = smallestNumberInArray === biggestNumberInArray;
+
+    function removeNumberFromArray(array, removedNumber) {
+        if (!isSmallestAndBiggestNumberAreTheSame) {
+            return array.filter(
+                number => number !== removedNumber
+            );
+        } else {
+            let arrayWithoutFirstElement = array.slice();
+            arrayWithoutFirstElement.shift();
+            return arrayWithoutFirstElement;
+        }
+    }
+
+    const arrayOfPositiveNumbersWithBiggestInteger = removeNumberFromArray(arrayOfPositiveNumbers, smallestNumberInArray);
+    const arrayOfPositiveNumbersWithSmallestInteger = removeNumberFromArray(arrayOfPositiveNumbers, biggestNumberInArray);
+
+    const biggestSum = arrayOfPositiveNumbersWithBiggestInteger.reduce(
+        (a, b) => a + b
+    );
+    const smallestSum = arrayOfPositiveNumbersWithSmallestInteger.reduce(
+        (a, b) => a + b
+    );
+
+    console.log(biggestSum, smallestSum);
+
+</script>
 </body>
 </html>
