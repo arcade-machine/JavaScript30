@@ -303,6 +303,36 @@
 
     console.log(birthdayCakeCandles(candles));
 
+    // ____ convert date ______ //
+
+    const initialDate = "12:40:22AM";
+
+    function timeConversion(s) {
+        const isTimePastMidnight = s.includes("PM");
+
+        const timeWithoutLetters = isTimePastMidnight ?
+            s.replace("PM", "") :
+            s.replace("AM", "");
+
+        const timeObject = timeWithoutLetters.split(":");
+        const isTwelveOClock = +timeObject[0] === 12;
+
+        if (isTimePastMidnight) {
+            if (!isTwelveOClock) {
+                timeObject[0] = +timeObject[0] + 12;
+            }
+            return timeObject.join(":");
+        } else {
+            if (isTwelveOClock) {
+                timeObject[0] = "00";
+            }
+            return timeObject.join(":");
+        }
+    }
+
+    console.log(timeConversion(initialDate));
+
+
 </script>
 </body>
 </html>
